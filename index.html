@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amol Bachhav | Advanced Analytics Professional | Data Science & Business Strategy Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #14b8a6;
+            --gold: #fbbf24;
+            --dark: #000000;
+            --dark-gradient-start: #000000;
+            --dark-gradient-end: #1a1a1a;
+            --light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-dark: rgba(0, 0, 0, 0.5);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+            color: var(--light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #000000 0%, #0f0f0f 25%, #1a1a1a 50%, #0a0a0a 75%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: moveGrid 20s linear infinite;
+        }
+
+        @keyframes moveGrid {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating Shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.05;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            top: 10%;
+            right: 10%;
+            animation: float 6s ease-in-out infinite;
+            filter: blur(40px);
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, var(--accent), var(--gold));
+            border-radius: 50%;
+            bottom: 10%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite reverse;
+            filter: blur(30px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(20,20,20,0.4));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            max-width: 1100px;
+            width: 100%;
+            animation: slideUp 1s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-photo {
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .profile-photo img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 20px;
+            border: 3px solid transparent;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            background-clip: padding-box;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            animation: profileGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes profileGlow {
+            0%, 100% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.3); }
+            50% { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 50px rgba(139, 92, 246, 0.5); }
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #ffffff 0%, #3b82f6 50%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: glow 2s ease-in-out infinite alternate;
+            font-weight: 700;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(20, 184, 166, 0.7)); }
+        }
+
+        .hero h2 {
+            color: #94a3b8;
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            min-width: 150px;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .stat-label {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(25,25,25,0.95));
+            border-radius: 30px;
+            margin: 2rem auto;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--light);
+            background: linear-gradient(135deg, #ffffff 0%, #3b82f6 50%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .skill-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(20, 184, 166, 0.05));
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(20, 184, 166, 0.1));
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category i {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            border-color: transparent;
+        }
+
+        /* Education Section */
+        .education {
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(20,20,20,0.4));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--accent), var(--secondary));
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .education-card:hover::before {
+            opacity: 1;
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+
+        .degree-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .institution {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #cbd5e1;
+        }
+
+        .ranking {
+            display: inline-block;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b);
+            color: var(--dark);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Certifications Grid */
+        .certifications-container {
+            background: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(25,25,25,0.95));
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 2rem auto;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cert-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(20, 184, 166, 0.2));
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .filter-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .filter-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transform: scale(1.05);
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        .search-box input::placeholder {
+            color: #64748b;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cert-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::after {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #10b981, #14b8a6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+            font-size: 1.1rem;
+        }
+
+        .cert-institution {
+            color: #64b5f6;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-category {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(20, 184, 166, 0.2));
+            color: #94a3b8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Stats Counter Animation */
+        .counter {
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-content {
+                padding: 2rem;
+            }
+            
+            .hero-inner {
+                flex-direction: column;
+            }
+            
+            .profile-photo img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .education-grid,
+            .certificates-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-circle {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255,255,255,0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: white;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(20, 184, 166, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Contact info styles */
+        .contact-info {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#skills"><i class="fas fa-chart-bar"></i> Skills</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-inner">
+                <div class="profile-photo">
+                    <img src="Photo.jpg" alt="Amol Bachhav - Advanced Analytics Professional">
+                </div>
+                <div class="hero-text">
+                    <h1>Amol Bachhav</h1>
+                    <h2>Advanced Analytics Professional</h2>
+                    <p style="color: #94a3b8; margin-bottom: 1.5rem;">Data Science & Business Strategy Expert</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <span class="stat-number counter" data-target="104">0</span>
+                            <span class="stat-label">Professional Certifications</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number counter" data-target="2">0</span>
+                            <span class="stat-label">Advanced Degrees</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number counter" data-target="5">0</span>
+                            <span class="stat-label">Elite Certifications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skill-categories">
+            <div class="skill-category">
+                <h3><i class="fas fa-brain"></i> Data Science & AI</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">Machine Learning</span>
+                    <span class="skill-badge">Deep Learning</span>
+                    <span class="skill-badge">Predictive Analytics</span>
+                    <span class="skill-badge">Big Data</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">R Programming</span>
+                    <span class="skill-badge">SAS</span>
+                    <span class="skill-badge">TensorFlow</span>
+                    <span class="skill-badge">Applied ML</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-project-diagram"></i> Project Management</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">PMP Certified</span>
+                    <span class="skill-badge">Advanced Scrum Master</span>
+                    <span class="skill-badge">SAFe RTE</span>
+                    <span class="skill-badge">CSPO</span>
+                    <span class="skill-badge">Agile Methodologies</span>
+                    <span class="skill-badge">System Analysis</span>
+                    <span class="skill-badge">Digital Transformation</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-line"></i> Business Strategy</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">Strategic Management</span>
+                    <span class="skill-badge">M&A Valuation</span>
+                    <span class="skill-badge">Financial Analysis</span>
+                    <span class="skill-badge">Risk Management</span>
+                    <span class="skill-badge">Corporate Finance</span>
+                    <span class="skill-badge">Private Equity</span>
+                    <span class="skill-badge">Venture Capital</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-bullhorn"></i> Marketing & Analytics</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">Customer Analytics</span>
+                    <span class="skill-badge">Web Analytics</span>
+                    <span class="skill-badge">Digital Marketing</span>
+                    <span class="skill-badge">Brand Strategy</span>
+                    <span class="skill-badge">Consumer Behavior</span>
+                    <span class="skill-badge">Marketing Research</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-shield-alt"></i> Technology & Security</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">Cybersecurity</span>
+                    <span class="skill-badge">IT Strategy</span>
+                    <span class="skill-badge">Digital Consulting</span>
+                    <span class="skill-badge">Technology Consulting</span>
+                    <span class="skill-badge">Business Intelligence</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3><i class="fas fa-users"></i> Leadership</h3>
+                <div class="skill-items">
+                    <span class="skill-badge">Team Leadership</span>
+                    <span class="skill-badge">Talent Management</span>
+                    <span class="skill-badge">Organizational Behavior</span>
+                    <span class="skill-badge">Change Management</span>
+                    <span class="skill-badge">Executive Communication</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education" id="education">
+        <h2 class="section-title" style="color: white;">Education Excellence</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="degree-title">MS in Data Science and AI</div>
+                <div class="institution">University of Texas at Dallas</div>
+                <div class="ranking">Ranked #11</div>
+            </div>
+            <div class="education-card">
+                <div class="degree-title">Executive MBA in Strategy & Finance</div>
+                <div class="institution">S.P. Jain Institute of Management & Research</div>
+                <div class="ranking">Ranked #5</div>
+            </div>
+            <div class="education-card">
+                <div class="degree-title">MBA in International Business</div>
+                <div class="institution">Symbiosis Centre for Distance Learning</div>
+            </div>
+            <div class="education-card">
+                <div class="degree-title">Bachelor of Engineering</div>
+                <div class="institution">Government College of Engineering, Aurangabad</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications-container" id="certifications">
+        <h2 class="section-title">Professional Certifications</h2>
+        
+        <div class="cert-filters">
+            <button class="filter-btn active" onclick="filterCerts('all')">All (104)</button>
+            <button class="filter-btn" onclick="filterCerts('ms')">MS Data Science (13)</button>
+            <button class="filter-btn" onclick="filterCerts('mba')">MBA & Executive (52)</button>
+            <button class="filter-btn" onclick="filterCerts('professional')">Professional (3)</button>
+            <button class="filter-btn" onclick="filterCerts('engineering')">Engineering (20)</button>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="certSearch" placeholder="Search certifications..." onkeyup="searchCerts()">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="certificates-grid" id="certificatesGrid">
+            <!-- Certificates will be dynamically loaded here -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title" style="color: white;">Let's Connect</h2>
+        <p style="color: #94a3b8; margin-bottom: 1.5rem;">Ready to discuss data-driven strategies and innovative solutions</p>
+        
+        <div class="contact-info">
+            <p><i class="fas fa-phone"></i> +1 (469) 894-7007</p>
+        </div>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> amol.bachhav@proton.me</p>
+        </div>
+        
+        <div class="contact-buttons">
+            <a href="https://www.linkedin.com/in/amolbachhav007" target="_blank" class="contact-btn">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:amol.bachhav@proton.me" class="contact-btn">
+                <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <a href="tel:+14698947007" class="contact-btn">
+                <i class="fas fa-phone"></i> Call Me
+            </a>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Certificate Data
+        const certificates = [
+            {title: "Generative AI for Executives and Business Leaders", institution: "IBM", category: "mba"},
+            {title: "Managing Talent", institution: "University of Michigan", category: "mba"},
+            {title: "Security Analysis and Portfolio Management", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Strategy Implementation", institution: "Copenhagen Business School", category: "mba"},
+            {title: "Digital Transformation", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Brand Identity and Strategy", institution: "IE Business School", category: "mba"},
+            {title: "Technology Consulting - Leading Practices", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Branding and Customer Experience", institution: "IE Business School", category: "mba"},
+            {title: "Integrated Course - IM&A (Consortium)", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Protecting Business Innovations via Strategy", institution: "The Hong Kong University of Science and Technology", category: "mba"},
+            {title: "Advanced Valuation and Strategy - M&A, Private Equity, and Venture Capital", institution: "Erasmus University Rotterdam", category: "mba"},
+            {title: "Introduction to Cybersecurity for Business", institution: "University of Colorado System", category: "mba"},
+            {title: "Leading Diverse Teams & Organizations", institution: "University of Michigan", category: "mba"},
+            {title: "Integrated Marketing Communications", institution: "IE Business School", category: "mba"},
+            {title: "Corporate Valuation", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "GenAI for Executives & Business Leaders: An Introduction", institution: "IBM", category: "mba"},
+            {title: "Financial Risk Management with R", institution: "Duke University", category: "mba"},
+            {title: "GenAI for Execs & Business Leaders: Formulate Your Use Case", institution: "IBM", category: "mba"},
+            {title: "Private Equity and Venture Capital", institution: "Università Bocconi", category: "mba"},
+            {title: "The Foundations of Cybersecurity", institution: "Kennesaw State University", category: "mba"},
+            {title: "GenAI for Execs & Business Leaders: Integration Strategy", institution: "IBM", category: "mba"},
+            {title: "Customer Analytics", institution: "University of Pennsylvania", category: "mba"},
+            {title: "Business Intelligence & Analytics", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Darden Digital Marketing Onboarding Course", institution: "University of Virginia Darden School Foundation", category: "mba"},
+            {title: "Game Theory in Business Strategy", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Consumer Behavior", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Machine Learning for Marketing Analytics in R", institution: "DataCamp", category: "mba"},
+            {title: "Data Scientist with Python", institution: "DataCamp", category: "mba"},
+            {title: "Project Management Professional", institution: "PMI", category: "professional"},
+            {title: "Certified Product Owner", institution: "Scrum Alliance", category: "professional"},
+            {title: "Advanced Scrum Master", institution: "Scaled Agile", category: "professional"},
+            {title: "Marketing Management", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Data Analysis", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Social Immersion", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Legal Aspects of Business", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Professional Communication: Speaking, Writing and Being", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Applied Economics for Business", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Strategic Management", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Journey Towards Self Mastery", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Information Technology Strategy", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "SPJIMR's PGDM Online - Orientation Course", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Organisational Behaviour and Human Resource Management", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Integrated Course - Organisation and Leadership", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Design Thinking and Innovation", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Decision Making through Business Simulation", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Living Ethics: A Journey to Success in Business and in Life", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Financial Reporting and Analysis", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Integrated Course - Finance and Markets", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Operations Management", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Integrated Course - Strategy (Consortium)", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Finance for Decision-Making", institution: "S.P. Jain Institute of Management and Research", category: "mba"},
+            {title: "Principles and Practices of Management", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Organizational Behaviour", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Management Accounting", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Managerial Economics", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Business Communication", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Management Information Systems", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International Economics", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Economic Environment and Business", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Research Methodology & Statistical Quantitative Methods", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International Business Management", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Strategic Management", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Financial Institutions and Banking", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International Commercial Law", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International (Trade) Logistics", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Foreign Exchange Management", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International Marketing", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Marketing Research", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "International Finance", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Exim Policies and Procedures", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Corporate Governance", institution: "Symbiosis Centre for Distance Learning", category: "mba"},
+            {title: "Engineering Mathematics - I", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Applied Science - I", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Electrical Engineering", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Engineering Graphics", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Civil Engineering", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Applied Science - I (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Electrical Engineering (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Engineering Graphics (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Civil Engineering (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Workshop - I", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Engineering Mathematics - II", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Applied Science - II", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Engineering Mechanics", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Mechanical Engineering", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Electronics and Computer Programming", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Applied Science - II (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Engineering Mechanics (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Electronics & Comp. Prog. (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Basics of Mech. Engineering (Lab)", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Communication Skills", institution: "Govt. College of Engineering, Aurangabad", category: "engineering"},
+            {title: "Database Foundations for Business Analytics", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Business Analytics with R", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Professional Development", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Marketing Web Analytics and Insights", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Statistics and Data Analysis", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Predictive Analytics using SAS", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Programming for Data Science", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Advanced Business Analytics with R", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Big Data", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Applied Machine Learning", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "System Analysis & Project Management", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Digital Consulting Project", institution: "University of Texas at Dallas", category: "ms"},
+            {title: "Accounting for Managers", institution: "University of Texas at Dallas", category: "ms"}
+        ];
+
+        // Initialize certificates on load
+        let currentFilter = 'all';
+        
+        function displayCertificates(filter = 'all', searchTerm = '') {
+            const grid = document.getElementById('certificatesGrid');
+            const filteredCerts = certificates.filter(cert => {
+                const matchesFilter = filter === 'all' || cert.category === filter;
+                const matchesSearch = searchTerm === '' || 
+                    cert.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    cert.institution.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+            
+            grid.innerHTML = filteredCerts.map(cert => `
+                <div class="cert-card">
+                    <div class="cert-title">${cert.title}</div>
+                    <div class="cert-institution">${cert.institution}</div>
+                    <div class="cert-category">${getCategoryLabel(cert.category)}</div>
+                </div>
+            `).join('');
+        }
+        
+        function getCategoryLabel(category) {
+            switch(category) {
+                case 'ms': return 'MS Data Science';
+                case 'mba': return 'MBA & Executive';
+                case 'professional': return 'Professional';
+                case 'engineering': return 'Engineering';
+                default: return category;
+            }
+        }
+        
+        function filterCerts(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            displayCertificates(filter, document.getElementById('certSearch').value);
+        }
+        
+        function searchCerts() {
+            const searchTerm = document.getElementById('certSearch').value;
+            displayCertificates(currentFilter, searchTerm);
+        }
+
+        // Counter Animation
+        function animateCounter() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const increment = target / 50;
+                
+                const updateCount = () => {
+                    if (count < target) {
+                        count += increment;
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 40);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar Background on Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const scrollTop = document.getElementById('scrollTop');
+            
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                navbar.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Scroll to Top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Page Load Animations
+        window.addEventListener('load', () => {
+            // Hide loader
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+            
+            // Start counter animation after load
+            setTimeout(() => {
+                animateCounter();
+            }, 1500);
+            
+            // Initialize certificates
+            displayCertificates();
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
