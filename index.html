@@ -2229,12 +2229,8 @@
 <!-- Certifications Section -->
 <section class="certifications-container" id="certifications">
 <h2 class="section-title">Professional Certifications</h2>
-<div class="cert-filters">
-<button class="filter-btn active" onclick="filterCerts('all')">All (100)</button>
-<button class="filter-btn" onclick="filterCerts('ms')">MS Data Science (13)</button>
-<button class="filter-btn" onclick="filterCerts('mba')">MBA &amp; Executive (50)</button>
-<button class="filter-btn" onclick="filterCerts('engineering')">Engineering (20)</button>
-<button class="filter-btn" onclick="filterCerts('symbiosis')">Symbiosis MBA (17)</button>
+<div class="cert-filters" id="cert-filters">
+<!-- Filter buttons are generated dynamically by JavaScript -->
 </div>
 <div class="search-box">
 <input id="certSearch" onkeyup="searchCerts()" placeholder="Search certifications..." type="text"/>
@@ -2407,7 +2403,30 @@
                 default: return category;
             }
         }
-        
+
+        // Generate filter buttons dynamically with correct counts
+        function generateFilterButtons() {
+            const filtersContainer = document.getElementById('cert-filters');
+            const categories = ['all', 'ms', 'mba', 'engineering', 'symbiosis'];
+            const categoryLabels = {
+                'all': 'All',
+                'ms': 'MS Data Science',
+                'mba': 'MBA & Executive',
+                'engineering': 'Engineering',
+                'symbiosis': 'Symbiosis MBA'
+            };
+
+            let html = '';
+            categories.forEach((cat, index) => {
+                const count = cat === 'all'
+                    ? certificates.length
+                    : certificates.filter(c => c.category === cat).length;
+                const activeClass = index === 0 ? 'active' : '';
+                html += `<button class="filter-btn ${activeClass}" onclick="filterCerts('${cat}')">${categoryLabels[cat]} (${count})</button>`;
+            });
+            filtersContainer.innerHTML = html;
+        }
+
         function filterCerts(filter) {
             currentFilter = filter;
             document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -2509,7 +2528,8 @@
                 animateCounter();
             }, 1500);
             
-            // Initialize certificates
+            // Initialize certificates with dynamic filter buttons
+            generateFilterButtons();
             displayCertificates();
         });
 
