@@ -1799,19 +1799,19 @@
 <p style="color: #94a3b8; margin-bottom: 1.5rem;">Data Science &amp; Business Strategy Expert</p>
 <div class="hero-stats">
 <a class="stat-card" href="#certifications">
-<span class="stat-number counter" data-target="104">0</span>
+<span id="cert-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Professional Certifications</span>
 </a>
 <a class="stat-card" href="#education">
-<span class="stat-number counter" data-target="3">0</span>
+<span id="degree-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Advanced Degrees</span>
 </a>
 <a class="stat-card" href="#elite">
-<span class="stat-number counter" data-target="8">0</span>
+<span id="elite-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Elite Certifications</span>
 </a>
 <a class="stat-card" href="#projects">
-<span class="stat-number counter" data-target="3">0</span>
+<span id="project-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Strategic Projects</span>
 </a>
 </div>
@@ -2422,6 +2422,24 @@
             displayCertificates(currentFilter, searchTerm);
         }
 
+        // Dynamic Stats Counter - automatically counts items in each section
+        function updateDynamicStats() {
+            // Count certificates from the certificates array
+            document.getElementById('cert-count').setAttribute('data-target', certificates.length);
+
+            // Count education cards
+            const degreeCount = document.querySelectorAll('.education-card').length;
+            document.getElementById('degree-count').setAttribute('data-target', degreeCount);
+
+            // Count elite certification cards
+            const eliteCount = document.querySelectorAll('.elite-card').length;
+            document.getElementById('elite-count').setAttribute('data-target', eliteCount);
+
+            // Count project cards
+            const projectCount = document.querySelectorAll('.project-card').length;
+            document.getElementById('project-count').setAttribute('data-target', projectCount);
+        }
+
         // Counter Animation
         function animateCounter() {
             const counters = document.querySelectorAll('.counter');
@@ -2485,8 +2503,9 @@
                 document.getElementById('loader').classList.add('hidden');
             }, 1000);
             
-            // Start counter animation after load
+            // Update dynamic stats and start counter animation after load
             setTimeout(() => {
+                updateDynamicStats();
                 animateCounter();
             }, 1500);
             
