@@ -1107,6 +1107,187 @@
             font-size: 0.95rem;
         }
 
+        /* Tesla Modal Enhanced Styles */
+        .tesla-header {
+            text-align: center;
+            padding: 1.5rem 1.5rem 1rem;
+            border-bottom: none;
+        }
+
+        .tesla-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .tesla-subtitle {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .tesla-metrics {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1.25rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            margin: 1rem 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tesla-metric {
+            text-align: center;
+        }
+
+        .tesla-metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tesla-metric-label {
+            font-size: 0.65rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .tesla-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .tesla-tab {
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: #94a3b8;
+        }
+
+        .tesla-tab:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .tesla-tab.active {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            border-color: transparent;
+            color: #fff;
+        }
+
+        .tesla-tab-content {
+            display: none;
+        }
+
+        .tesla-tab-content.active {
+            display: block;
+        }
+
+        .strategic-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .strategic-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 1.25rem;
+            border-left: 3px solid var(--accent, #fbbf24);
+        }
+
+        .strategic-section h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .strategic-section h4::before {
+            content: '';
+            width: 3px;
+            height: 16px;
+            background: var(--accent, #fbbf24);
+            border-radius: 2px;
+        }
+
+        .strategic-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .strategic-section li {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .strategic-section li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent, #fbbf24);
+        }
+
+        .strategic-footer {
+            text-align: center;
+            padding: 1rem;
+            color: #64748b;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        @media (max-width: 900px) {
+            .strategic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .tesla-metrics {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .strategic-grid {
+                grid-template-columns: 1fr;
+            }
+            .tesla-title {
+                font-size: 2rem;
+            }
+            .tesla-metrics {
+                gap: 0.75rem;
+            }
+            .tesla-metric-value {
+                font-size: 1.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .personal-card {
                 min-height: 200px;
@@ -2405,15 +2586,39 @@
 </section>
 <div class="modal-overlay" id="tesla-modal" aria-hidden="true">
 <div class="modal-content">
-<div class="modal-header">
-<div>
-<div class="eyebrow">Personal Project</div>
-<h3>Tesla Model 3 — Product Manager Canvas</h3>
-<p style="color:#94a3b8;">Adapted from the uploaded Tesla enhanced BMC to match this site's aesthetic.</p>
+<button class="modal-close" id="tesla-modal-close" aria-label="Close Tesla canvas" style="position:absolute;top:1rem;right:1rem;z-index:10;">&times;</button>
+<div class="tesla-header">
+<h2 class="tesla-title">TESLA</h2>
+<p class="tesla-subtitle">Enhanced Business Model Canvas • Sr. Product Manager View</p>
 </div>
-<button class="modal-close" id="tesla-modal-close" aria-label="Close Tesla canvas">&times;</button>
+<div class="tesla-metrics">
+<div class="tesla-metric">
+<div class="tesla-metric-value">$96B</div>
+<div class="tesla-metric-label">2024 Revenue</div>
+</div>
+<div class="tesla-metric">
+<div class="tesla-metric-value">1.8M+</div>
+<div class="tesla-metric-label">Vehicles Delivered</div>
+</div>
+<div class="tesla-metric">
+<div class="tesla-metric-value">18%</div>
+<div class="tesla-metric-label">Gross Margin</div>
+</div>
+<div class="tesla-metric">
+<div class="tesla-metric-value">60K+</div>
+<div class="tesla-metric-label">Superchargers</div>
+</div>
+<div class="tesla-metric">
+<div class="tesla-metric-value">10B+</div>
+<div class="tesla-metric-label">FSD Miles</div>
+</div>
+</div>
+<div class="tesla-tabs">
+<button class="tesla-tab active" data-tab="canvas">Business Canvas</button>
+<button class="tesla-tab" data-tab="strategic">Strategic Insights</button>
 </div>
 <div class="modal-body">
+<div class="tesla-tab-content active" id="canvas-tab">
 <div class="bmc-grid">
 <div class="bmc-section" style="--accent:#1a1a2e">
 <div class="label"><span class="bmc-icon">🤝</span><h4>Key Partners</h4></div>
@@ -2499,6 +2704,53 @@
 </div>
 <div class="bmc-highlight">
 <strong>Strategic focus:</strong> 2025 priorities include launching the $25K platform, robotaxi rollout in key markets, monetizing NACS and Supercharger adoption, and pushing for FSD regulatory approvals while scaling Optimus to cut factory labor costs 30%+.
+</div>
+</div>
+</div>
+<div class="tesla-tab-content" id="strategic-tab">
+<div class="strategic-grid">
+<div class="strategic-section" style="--accent:#fbbf24">
+<h4>2025 Strategic Priorities</h4>
+<ul>
+<li>Launch affordable $25K vehicle platform to capture mass market</li>
+<li>Scale Robotaxi deployment in approved markets (Austin, SF)</li>
+<li>Expand Supercharger revenue as NACS becomes industry standard</li>
+<li>Achieve FSD regulatory approval in key markets</li>
+<li>Deploy Optimus in Gigafactories to reduce labor costs 30%+</li>
+</ul>
+</div>
+<div class="strategic-section" style="--accent:#10b981">
+<h4>Competitive Moats</h4>
+<ul>
+<li>10B+ miles of real-world FSD training data (10x nearest competitor)</li>
+<li>Vertical integration from cells to software</li>
+<li>Supercharger network with 60K+ global stalls</li>
+<li>Brand equity &amp; direct-to-consumer model</li>
+<li>Manufacturing efficiency (industry-leading margins)</li>
+</ul>
+</div>
+<div class="strategic-section" style="--accent:#ef4444">
+<h4>Key Risks to Monitor</h4>
+<ul>
+<li>Chinese EV competition intensifying (BYD price pressure)</li>
+<li>Regulatory uncertainty around FSD / autonomous driving</li>
+<li>Brand perception tied to CEO's public activities</li>
+<li>Increasing competition in charging infrastructure</li>
+<li>Potential EV tax credit changes / trade policies</li>
+</ul>
+</div>
+<div class="strategic-section" style="--accent:#8b5cf6">
+<h4>Growth Vectors (2025-2030)</h4>
+<ul>
+<li>Robotaxi: TAM of $1T+ ride-hailing market disruption</li>
+<li>Energy: Grid-scale storage becoming major revenue driver</li>
+<li>FSD Licensing: Revenue from OEM partnerships</li>
+<li>Optimus: Long-term labor automation opportunity</li>
+<li>Insurance: Expanding underwriting using driving data</li>
+</ul>
+</div>
+</div>
+<div class="strategic-footer">Click any section to explore • Strategic analysis for Q1 2025</div>
 </div>
 </div>
 </div>
@@ -2914,6 +3166,24 @@
                 }
             });
         }
+
+        // Tesla Modal Tabs
+        const teslaTabs = document.querySelectorAll('.tesla-tab');
+        teslaTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active from all tabs
+                teslaTabs.forEach(t => t.classList.remove('active'));
+                // Add active to clicked tab
+                tab.classList.add('active');
+                // Hide all tab content
+                document.querySelectorAll('.tesla-tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                // Show selected tab content
+                const tabId = tab.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
 
         // Trading Modal
         const tradingCard = document.getElementById('trading-card');
