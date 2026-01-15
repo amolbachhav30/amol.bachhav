@@ -2081,6 +2081,12 @@
 </a>
 </li>
 <li>
+<a class="sidebar-link" data-section="personal-projects" href="#personal-projects">
+<i class="fas fa-lightbulb"></i>
+<span>Personal</span>
+</a>
+</li>
+<li>
 <a class="sidebar-link" data-section="education" href="#education">
 <i class="fas fa-graduation-cap"></i>
 <span>Education</span>
@@ -2133,6 +2139,10 @@
 <a class="stat-card" href="#projects">
 <span id="project-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Strategic Projects</span>
+</a>
+<a class="stat-card" href="#personal-projects">
+<span id="personal-count" class="stat-number counter" data-target="0">0</span>
+<span class="stat-label">Personal Projects</span>
 </a>
 </div>
 </div>
@@ -2960,6 +2970,10 @@
             // Count project cards
             const projectCount = document.querySelectorAll('.project-card').length;
             document.getElementById('project-count').setAttribute('data-target', projectCount);
+
+            // Count personal project cards
+            const personalCount = document.querySelectorAll('.personal-card').length;
+            document.getElementById('personal-count').setAttribute('data-target', personalCount);
         }
 
         // Counter Animation
