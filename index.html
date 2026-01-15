@@ -1479,6 +1479,28 @@
             font-style: italic;
         }
 
+        .initiative-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            color: #60a5fa;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .initiative-link:hover {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.2));
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 1024px) {
             .initiatives-grid {
                 grid-template-columns: 1fr;
@@ -2546,6 +2568,7 @@
 <li>Designed for users who want to think like institutions, not traders</li>
 </ul>
 <div class="card-footer">No jargon. No noise. Just structured insights that help users understand why something is happening.</div>
+<a href="https://amolbachhav30.github.io/marketsense-website/#" target="_blank" class="initiative-link"><i class="fas fa-external-link-alt"></i> Visit Website</a>
 </div>
 <div class="initiative-card monk">
 <div class="initiative-icon"><i class="fas fa-brain"></i></div>
