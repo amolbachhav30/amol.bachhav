@@ -797,6 +797,316 @@
             margin-top: 0.2rem;
         }
 
+        /* Personal Projects */
+        .personal-projects {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .personal-projects .section-subtitle {
+            color: #94a3b8;
+            text-align: center;
+            margin-top: -2rem;
+            margin-bottom: 3rem;
+        }
+
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .personal-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            padding: 1.75rem;
+            background: linear-gradient(145deg, rgba(0,0,0,0.75), rgba(20,20,20,0.5)), url('https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border: 1px solid rgba(255,255,255,0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .personal-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(120deg, rgba(59, 130, 246, 0.35), rgba(20, 184, 166, 0.1));
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .personal-card::after {
+            content: '';
+            position: absolute;
+            inset: 12px;
+            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 45%), radial-gradient(circle at 80% 10%, rgba(20, 184, 166, 0.1), transparent 35%), linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 0;
+        }
+
+        .personal-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .personal-card:hover::before {
+            opacity: 1;
+        }
+
+        .personal-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .personal-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.15);
+            color: #e2e8f0;
+            font-size: 0.85rem;
+            border: 1px solid rgba(59, 130, 246, 0.35);
+            margin-bottom: 0.75rem;
+        }
+
+        .personal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.35rem;
+            color: #fff;
+        }
+
+        .personal-card p {
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .personal-meta {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .personal-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 0.45rem 0.75rem;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+        }
+
+        .personal-card .cta {
+            align-self: flex-start;
+            padding: 0.55rem 1rem;
+            border-radius: 12px;
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(59, 130, 246, 0.15));
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .personal-card .cta:hover {
+            border-color: rgba(251, 191, 36, 0.6);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.15);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1003;
+            padding: 1rem;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(5, 5, 5, 0.9), rgba(18, 18, 18, 0.9));
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
+            max-width: 1100px;
+            width: 100%;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .modal-header h3 {
+            margin-bottom: 0.3rem;
+            color: #fff;
+        }
+
+        .modal-header .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.6);
+        }
+
+        .modal-body {
+            padding: 1.25rem 1.5rem 1.5rem;
+            overflow-y: auto;
+            max-height: calc(90vh - 90px);
+        }
+
+        .bmc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+        }
+
+        .bmc-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .bmc-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent, var(--primary)), rgba(255, 255, 255, 0.1));
+        }
+
+        .bmc-section h4 {
+            margin: 0.3rem 0 0.5rem;
+            color: #fff;
+        }
+
+        .bmc-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .bmc-section li {
+            color: #cbd5e1;
+            margin-bottom: 0.35rem;
+            font-size: 0.95rem;
+        }
+
+        .bmc-section .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .bmc-icon {
+            background: rgba(255, 255, 255, 0.08);
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bmc-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(20, 184, 166, 0.12);
+            border: 1px solid rgba(20, 184, 166, 0.25);
+            padding: 0.35rem 0.65rem;
+            border-radius: 10px;
+            color: #a5f3fc;
+            font-size: 0.85rem;
+            margin-right: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .bmc-meta {
+            margin-top: 0.75rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .bmc-highlight {
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+            color: #fef3c7;
+            padding: 0.5rem 0.75rem;
+            border-radius: 10px;
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .personal-card {
+                min-height: 200px;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+            }
+        }
+
         /* Skills Section */
         .skills {
             background: linear-gradient(135deg, rgba(15,15,15,0.95), rgba(25,25,25,0.95));
@@ -2123,6 +2433,125 @@
 </div>
 </div>
 </section>
+<!-- Personal Projects -->
+<section class="personal-projects" id="personal-projects">
+<h2 class="section-title">Personal Projects</h2>
+<p class="section-subtitle">Hands-on explorations that blend product management, strategy, and storytelling.</p>
+<div class="personal-grid">
+<div class="personal-card" id="tesla-card" tabindex="0" role="button" aria-controls="tesla-modal">
+<div class="personal-card-content">
+<div class="personal-pill"><i class="fas fa-car"></i><span>Tesla Model 3</span></div>
+<h3>Product Manager Canvas</h3>
+<p>Enhanced Model 3 business model canvas covering partners, go-to-market, cost, and revenue levers.</p>
+<div class="personal-meta">
+<span><i class="fas fa-bolt"></i>EV Strategy</span>
+<span><i class="fas fa-rocket"></i>Growth 2025</span>
+</div>
+<div class="cta">Open interactive view <i class="fas fa-arrow-up-right-from-square"></i></div>
+</div>
+</div>
+</div>
+</section>
+<div class="modal-overlay" id="tesla-modal" aria-hidden="true">
+<div class="modal-content">
+<div class="modal-header">
+<div>
+<div class="eyebrow">Personal Project</div>
+<h3>Tesla Model 3 — Product Manager Canvas</h3>
+<p style="color:#94a3b8;">Adapted from the uploaded Tesla enhanced BMC to match this site's aesthetic.</p>
+</div>
+<button class="modal-close" id="tesla-modal-close" aria-label="Close Tesla canvas">&times;</button>
+</div>
+<div class="modal-body">
+<div class="bmc-grid">
+<div class="bmc-section" style="--accent:#1a1a2e">
+<div class="label"><span class="bmc-icon">🤝</span><h4>Key Partners</h4></div>
+<ul>
+<li>Battery supply: Panasonic 4680, CATL/ BYD, direct lithium &amp; cobalt sourcing.</li>
+<li>Energy &amp; infra: Utilities, solar suppliers, grid operators, NACS charging adopters.</li>
+<li>Tech stack: NVIDIA/Dojo compute, cloud (AWS/GCP), mapping data, Tesla Insurance.</li>
+<li>Strategic: Regulators, ride-share/robotaxi partners, financing &amp; real estate for sites.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#16213e">
+<div class="label"><span class="bmc-icon">⚡</span><h4>Key Activities</h4></div>
+<ul>
+<li>Scale Gigafactory production, expand vertical integration, ramp 4680 cells.</li>
+<li>R&amp;D: FSD neural nets, Optimus, next-gen $25K platform, new battery chemistry.</li>
+<li>Software &amp; AI: OTA releases, Dojo ops, data collection, in-car services ecosystem.</li>
+<li>Network: Supercharger V4 rollout, NACS support, energy storage installs, service expansion.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#0f3460">
+<div class="label"><span class="bmc-icon">💎</span><h4>Key Resources</h4></div>
+<ul>
+<li>Global Gigafactory footprint with Giga Press lines and ~150K+ employees.</li>
+<li>Proprietary tech: FSD stack, 4680 cells, Dojo, 10B+ miles of driving data.</li>
+<li>Brand &amp; DTC sales model with strong community and Elon-linked awareness.</li>
+<li>Infra: 60K+ Superchargers, mobile service fleet, energy installs, insurance capability.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#e94560">
+<div class="label"><span class="bmc-icon">✨</span><h4>Value Propositions</h4></div>
+<ul>
+<li>Performance &amp; innovation: leading range/acceleration, OTA improvements, advanced ADAS.</li>
+<li>Total cost: lower fuel/maintenance, strong resale, future robotaxi upside.</li>
+<li>Ecosystem: home-car energy loop, best-in-class charging, integrated insurance/app.</li>
+<li>Status &amp; sustainability: zero-emission driving, solar + Powerwall synergy, tech-forward design.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#533483">
+<div class="label"><span class="bmc-icon">💜</span><h4>Customer Relationships</h4></div>
+<ul>
+<li>Digital-first: Tesla app, in-car UX, online ordering, virtual service scheduling.</li>
+<li>Community: referral programs, events, social engagement, influencer ecosystem.</li>
+<li>Service: remote diagnostics, mobile units, predictive maintenance, collision network.</li>
+<li>Personalization: driver profiles, AI-learned preferences, usage-based insurance.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#7952b3">
+<div class="label"><span class="bmc-icon">🚀</span><h4>Channels</h4></div>
+<ul>
+<li>Direct digital sales (configurator/app) and Tesla retail showrooms.</li>
+<li>Experience centers &amp; delivery hubs integrated with service.</li>
+<li>Organic digital marketing and earned media; minimal paid ads.</li>
+<li>Charging network visibility: Supercharger/Destination, NACS licensing, in-car nav.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#2d6a4f">
+<div class="label"><span class="bmc-icon">👥</span><h4>Customer Segments</h4></div>
+<ul>
+<li>Tech enthusiasts seeking latest features/FSD; high engagement advocates.</li>
+<li>Eco-conscious buyers prioritizing sustainability and efficiency.</li>
+<li>Performance buyers valuing speed/status; upgrade frequently.</li>
+<li>Pragmatic EV adopters focused on value; plus fleet/commercial buyers.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#6c757d">
+<div class="label"><span class="bmc-icon">📊</span><h4>Cost Structure</h4></div>
+<ul>
+<li>Manufacturing-heavy (materials, labor, logistics, quality control).</li>
+<li>R&amp;D for FSD, new vehicles, battery tech, Optimus &amp; energy products.</li>
+<li>SG&amp;A for retail/service ops, corporate, legal/regulatory; lean marketing.</li>
+<li>Infrastructure: Supercharger deployment, service centers, IT/cloud, insurance reserves.</li>
+</ul>
+</div>
+<div class="bmc-section" style="--accent:#40916c">
+<div class="label"><span class="bmc-icon">💰</span><h4>Revenue Streams</h4></div>
+<ul>
+<li>Automotive sales (Model 3/Y volume; S/X premium; Cybertruck &amp; Semi).</li>
+<li>Services &amp; other: repairs, Supercharging, merchandise, insurance premiums.</li>
+<li>Software/subscriptions: FSD purchase/subscription, connectivity, feature unlocks.</li>
+<li>Energy generation/storage and future robotaxi, FSD licensing, Optimus, Dojo compute.</li>
+</ul>
+</div>
+</div>
+<div class="bmc-highlight">
+<strong>Strategic focus:</strong> 2025 priorities include launching the $25K platform, robotaxi rollout in key markets, monetizing NACS and Supercharger adoption, and pushing for FSD regulatory approvals while scaling Optimus to cut factory labor costs 30%+.
+</div>
+</div>
+</div>
+</div>
 <!-- Education Section -->
 <section class="education" id="education">
 <h2 class="section-title" style="color: white;">Education Excellence</h2>
@@ -2439,6 +2868,45 @@
         function searchCerts() {
             const searchTerm = document.getElementById('certSearch').value;
             displayCertificates(currentFilter, searchTerm);
+        }
+
+        // Personal Projects Modal
+        const teslaCard = document.getElementById('tesla-card');
+        const teslaModal = document.getElementById('tesla-modal');
+        const teslaClose = document.getElementById('tesla-modal-close');
+
+        function openTeslaModal() {
+            if (!teslaModal) return;
+            teslaModal.classList.add('open');
+            teslaModal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeTeslaModal() {
+            if (!teslaModal) return;
+            teslaModal.classList.remove('open');
+            teslaModal.setAttribute('aria-hidden', 'true');
+        }
+
+        if (teslaCard && teslaModal) {
+            teslaCard.addEventListener('click', openTeslaModal);
+            teslaCard.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openTeslaModal();
+                }
+            });
+        }
+
+        if (teslaClose) {
+            teslaClose.addEventListener('click', closeTeslaModal);
+        }
+
+        if (teslaModal) {
+            teslaModal.addEventListener('click', (e) => {
+                if (e.target === teslaModal) {
+                    closeTeslaModal();
+                }
+            });
         }
 
         // Dynamic Stats Counter - automatically counts items in each section
