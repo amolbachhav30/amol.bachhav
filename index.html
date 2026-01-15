@@ -1308,31 +1308,13 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .initiative-card {
-            background: linear-gradient(145deg, rgba(0,0,0,0.4), rgba(20,20,20,0.3));
-            border-radius: 20px;
-            padding: 2.5rem;
-            border: 1px solid rgba(255,255,255,0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .initiative-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3b82f6, #14b8a6, #fbbf24);
-        }
-
-        .initiative-header {
+        .initiatives-intro {
             text-align: center;
-            margin-bottom: 2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
         }
 
-        .initiative-logo {
+        .initiatives-intro .intro-logo {
             font-size: 2.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #3b82f6, #14b8a6);
@@ -1342,72 +1324,163 @@
             margin-bottom: 0.5rem;
         }
 
-        .initiative-tagline {
+        .initiatives-intro .intro-tagline {
             color: #94a3b8;
-            font-size: 1rem;
-            font-style: italic;
-        }
-
-        .initiative-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            align-items: start;
-        }
-
-        .initiative-about h3 {
-            color: #14b8a6;
             font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
         }
 
-        .initiative-about p {
+        .initiatives-intro p {
             color: #cbd5e1;
             line-height: 1.7;
             margin-bottom: 1rem;
         }
 
-        .initiative-details {
+        .initiatives-intro .mission-text {
+            color: #14b8a6;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 1.5rem 0;
+        }
+
+        .initiatives-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
-        .initiative-detail {
-            background: rgba(0,0,0,0.3);
-            padding: 1rem;
+        .initiative-card {
+            background: linear-gradient(145deg, rgba(0,0,0,0.5), rgba(20,20,20,0.3));
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .initiative-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--card-accent, linear-gradient(90deg, #3b82f6, #14b8a6));
+        }
+
+        .initiative-card.marketsense::before {
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+        }
+
+        .initiative-card.monk::before {
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        }
+
+        .initiative-card.learning::before {
+            background: linear-gradient(90deg, #14b8a6, #2dd4bf);
+        }
+
+        .initiative-icon {
+            width: 50px;
+            height: 50px;
             border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .initiative-detail-label {
-            color: #64748b;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.25rem;
+        .initiative-card.marketsense .initiative-icon {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
         }
 
-        .initiative-detail-value {
+        .initiative-card.monk .initiative-icon {
+            background: rgba(139, 92, 246, 0.15);
+            color: #a78bfa;
+        }
+
+        .initiative-card.learning .initiative-icon {
+            background: rgba(20, 184, 166, 0.15);
+            color: #2dd4bf;
+        }
+
+        .initiative-card h3 {
             color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .initiative-card .card-tagline {
+            color: #64748b;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .initiative-card p {
+            color: #94a3b8;
+            line-height: 1.6;
             font-size: 0.95rem;
-            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
-        .initiative-detail-value a {
-            color: #3b82f6;
-            text-decoration: none;
+        .initiative-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .initiative-detail-value a:hover {
-            text-decoration: underline;
+        .initiative-card li {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            padding: 0.4rem 0;
+            padding-left: 1.25rem;
+            position: relative;
         }
 
-        @media (max-width: 768px) {
-            .initiative-content {
-                grid-template-columns: 1fr;
-            }
-            .initiative-details {
+        .initiative-card.marketsense li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+        }
+
+        .initiative-card.monk li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #a78bfa;
+        }
+
+        .initiative-card.learning li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #2dd4bf;
+        }
+
+        .initiative-card .card-footer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+            font-size: 0.85rem;
+            font-style: italic;
+        }
+
+        @media (max-width: 1024px) {
+            .initiatives-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -2453,36 +2526,51 @@
 <!-- Initiatives Section -->
 <section class="initiatives" id="initiatives">
 <h2 class="section-title">Initiatives</h2>
-<div class="initiative-card">
-<div class="initiative-header">
-<div class="initiative-logo">Mitwa Labs</div>
-<div class="initiative-tagline">Your Friend, Philosopher &amp; Guide in Financial Markets</div>
+<div class="initiatives-intro">
+<div class="intro-logo">Mitwa Labs</div>
+<div class="intro-tagline">Your Friend, Philosopher &amp; Guide — at every stage</div>
+<p><strong>Mitwa</strong> means Friend, Philosopher, and Guide — someone who stands beside you through uncertainty, growth, and decision-making. That is exactly the role we aspire to play in our users' lives.</p>
+<p>At Mitwa Labs, we believe access to institutional-grade intelligence, structured thinking, and modern tools should not be limited to large organizations.</p>
+<div class="mission-text">To help individuals think clearly, act intelligently, and build with confidence.</div>
+<p style="color:#64748b;font-size:0.95rem;">We build apps and teach how to build apps using AI — with a strong emphasis on real-world usability, production readiness, and long-term thinking.</p>
 </div>
-<div class="initiative-content">
-<div class="initiative-about">
-<h3>What is Mitwa?</h3>
-<p><strong>Mitwa</strong> means Friend, Philosopher, and Guide — someone who stands by you no matter what. That's exactly who we aspire to be for our users.</p>
-<p>At Mitwa Labs, we believe everyone deserves access to institutional-grade market intelligence. Our mission is simple: <strong>help users become financially clever</strong>.</p>
-<p>We combine cutting-edge machine learning with intuitive design to demystify the stock market. No jargon, no complexity — just clear, actionable insights explained in plain English.</p>
+<div class="initiatives-grid">
+<div class="initiative-card marketsense">
+<div class="initiative-icon"><i class="fas fa-chart-line"></i></div>
+<h3>MarketSense App</h3>
+<div class="card-tagline">Clarity in markets, without complexity</div>
+<p>MarketSense combines machine learning, robust data pipelines, and intuitive design to help users understand the stock market without being overwhelmed.</p>
+<ul>
+<li>Translates complex market signals into plain-English insights</li>
+<li>Focuses on decision support, not speculation</li>
+<li>Designed for users who want to think like institutions, not traders</li>
+</ul>
+<div class="card-footer">No jargon. No noise. Just structured insights that help users understand why something is happening.</div>
 </div>
-<div class="initiative-details">
-<div class="initiative-detail">
-<div class="initiative-detail-label">Founded</div>
-<div class="initiative-detail-value">January 2025</div>
+<div class="initiative-card monk">
+<div class="initiative-icon"><i class="fas fa-brain"></i></div>
+<h3>Monk App</h3>
+<div class="card-tagline">Mental clarity meets structured self-development</div>
+<p>Monk is built around principles inspired by psycho-cybernetics, cognitive science, and behavioral frameworks.</p>
+<ul>
+<li>Improving self-image and internal narratives</li>
+<li>Reducing mental friction, insecurity, and reactive decision-making</li>
+<li>Aligning long-term financial and life goals with emotional well-being</li>
+</ul>
+<div class="card-footer">The goal is not perfection, but steadiness — across decisions, goals, and life stages.</div>
 </div>
-<div class="initiative-detail">
-<div class="initiative-detail-label">Our Mission</div>
-<div class="initiative-detail-value">Help users become financially clever</div>
-</div>
-<div class="initiative-detail">
-<div class="initiative-detail-label">Headquarters</div>
-<div class="initiative-detail-value">Golden City Center<br>Ch. Sambhaji Nagar, India</div>
-</div>
-<div class="initiative-detail">
-<div class="initiative-detail-label">Contact</div>
-<div class="initiative-detail-value"><a href="mailto:MarketSense185@gmail.com">MarketSense185@gmail.com</a></div>
-</div>
-</div>
+<div class="initiative-card learning">
+<div class="initiative-icon"><i class="fas fa-code"></i></div>
+<h3>Learning &amp; Builders Program</h3>
+<div class="card-tagline">Teaching how modern apps are actually built</div>
+<p>We are deeply focused on educating builders to create production-grade applications using AI-assisted tools such as Cursor and Lovable.</p>
+<ul>
+<li>Hands-on workshops focused on real architectures, not demos</li>
+<li>Guidance on building end-to-end systems — from data to UI</li>
+<li>Best practices in scalability, observability, and maintainability</li>
+<li>Small group learning with expert practitioners</li>
+</ul>
+<div class="card-footer">This is not about shortcuts. It's about teaching how real software is designed, shipped, and sustained.</div>
 </div>
 </div>
 </section>
