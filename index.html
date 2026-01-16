@@ -2520,6 +2520,10 @@
 <h2>AI & Data Science Leader</h2>
 <p style="color: #94a3b8; margin-bottom: 1.5rem;">Strategy & Technology Executive</p>
 <div class="hero-stats">
+<a class="stat-card" href="#initiatives">
+<span id="initiative-count" class="stat-number counter" data-target="0">0</span>
+<span class="stat-label">Initiatives</span>
+</a>
 <a class="stat-card" href="#projects">
 <span id="project-count" class="stat-number counter" data-target="0">0</span>
 <span class="stat-label">Strategic Projects</span>
@@ -3493,6 +3497,10 @@
 
         // Dynamic Stats Counter - automatically counts items in each section
         function updateDynamicStats() {
+            // Count initiatives
+            const initiativeCount = document.querySelectorAll('.initiative-card').length;
+            document.getElementById('initiative-count').setAttribute('data-target', initiativeCount);
+
             // Count certificates from the certificates array
             document.getElementById('cert-count').setAttribute('data-target', certificates.length);
 
